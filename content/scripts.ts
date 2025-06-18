@@ -77,6 +77,10 @@ function createChipsContainer(urls: string[]): HTMLElement {
 }
 
 function processVideoElement(el: Element) {
+    if ((el as HTMLElement).dataset.chipsInjected === "true") {
+        return;
+    }
+
     const videoContainer = [...el.querySelectorAll<HTMLElement>(
         'div[aria-label="Embedded video player"]'
     )].find(vid => {
